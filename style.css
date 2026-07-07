@@ -1,0 +1,3727 @@
+/* =========================================
+   BUSCANDO EL MULTIPLICADOR
+   STYLE.CSS
+   PARTE 1 - BASE DEL PROYECTO
+========================================= */
+
+
+/* ================================
+   VARIABLES
+================================ */
+
+:root {
+
+    --bg-main: #050505;
+    --bg-secondary: #101010;
+
+    --gold: #ffd700;
+    --gold-light: #fff3a3;
+    --gold-dark: #b88600;
+
+    --white: #ffffff;
+    --gray: #b8b8b8;
+
+    --red: #ff3030;
+    --red-dark: #850000;
+
+    --green: #00ff88;
+
+    --glass: rgba(255,255,255,0.06);
+
+    --border:
+        rgba(255,215,0,0.18);
+
+    --shadow-gold:
+        0 0 20px rgba(255,215,0,0.25);
+
+    --radius:
+        20px;
+
+    --transition:
+        .3s ease;
+
+}
+
+
+/* ================================
+   RESET
+================================ */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        var(--bg-main);
+
+    color:
+        var(--white);
+
+    overflow-x: hidden;
+
+}
+
+
+/* ================================
+   FONDO GENERAL
+================================ */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    top: -250px;
+    left: -200px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,215,0,0.18),
+            transparent 70%
+        );
+
+    filter: blur(40px);
+
+    z-index: -2;
+
+    animation:
+        floatingGlow 8s infinite alternate;
+
+}
+
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    bottom: -250px;
+    right: -200px;
+
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,215,0,0.12),
+            transparent 70%
+        );
+
+
+    filter: blur(50px);
+
+    z-index: -2;
+
+    animation:
+        floatingGlow 10s infinite alternate-reverse;
+
+}
+
+
+
+/* ================================
+   CONTENEDOR PRINCIPAL
+================================ */
+
+.container {
+
+    width:
+
+        min(1400px, 94%);
+
+
+    margin:
+
+        auto;
+
+
+    padding:
+
+        40px 0 60px;
+
+
+}
+
+
+
+/* ================================
+   EFECTO DE BRILLO GENERAL
+================================ */
+
+
+.background-glow {
+
+    position:
+
+        fixed;
+
+
+    inset:
+
+        0;
+
+
+    pointer-events:
+
+        none;
+
+
+    background:
+
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,215,0,0.04),
+            transparent
+        );
+
+
+    animation:
+
+        shineMove 8s linear infinite;
+
+
+    z-index:
+
+        -1;
+
+}
+
+
+
+/* ================================
+   ANIMACIONES BASE
+================================ */
+
+
+@keyframes floatingGlow {
+
+
+    from {
+
+        transform:
+
+            translateY(0px)
+            scale(1);
+
+    }
+
+
+    to {
+
+        transform:
+
+            translateY(40px)
+            scale(1.1);
+
+    }
+
+}
+
+
+
+@keyframes shineMove {
+
+
+    0% {
+
+        transform:
+
+            translateX(-100%);
+
+    }
+
+
+    100% {
+
+        transform:
+
+            translateX(100%);
+
+    }
+
+}
+
+/* =========================================
+   PARTE 2 - HEADER + PANEL DE INFORMACIÓN
+========================================= */
+
+
+/* ================================
+   HEADER PRINCIPAL
+================================ */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    animation:
+
+        fadeDown .8s ease;
+
+}
+
+
+.header h1 {
+
+    font-size: clamp(2rem, 5vw, 3.8rem);
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+
+    color:
+
+        var(--gold);
+
+
+    text-transform:
+
+        uppercase;
+
+
+    text-shadow:
+
+        0 0 10px rgba(255,215,0,.8),
+        0 0 30px rgba(255,215,0,.5);
+
+
+}
+
+
+
+/* Brillo en la palabra x2 */
+
+.header h1 span {
+
+    color:
+
+        var(--gold-light);
+
+
+    animation:
+
+        goldPulse 2s infinite alternate;
+
+}
+
+
+
+.subtitle {
+
+
+    margin-top: 12px;
+
+
+    color:
+
+        var(--gray);
+
+
+    font-size:
+
+        1.05rem;
+
+
+}
+
+
+.subtitle strong {
+
+
+    color:
+
+        var(--gold);
+
+
+}
+
+
+
+/* ================================
+   PANEL SUPERIOR
+================================ */
+
+
+.panel {
+
+
+    display:
+
+        flex;
+
+
+    justify-content:
+
+        center;
+
+
+    align-items:
+
+        stretch;
+
+
+    gap:
+
+        25px;
+
+
+    flex-wrap:
+
+        wrap;
+
+
+    margin-bottom:
+
+        35px;
+
+
+}
+
+
+
+.info-card {
+
+
+    min-width:
+
+        260px;
+
+
+    padding:
+
+        22px;
+
+
+    border-radius:
+
+        var(--radius);
+
+
+    background:
+
+        var(--glass);
+
+
+    border:
+
+        1px solid var(--border);
+
+
+    backdrop-filter:
+
+        blur(15px);
+
+
+
+    box-shadow:
+
+        var(--shadow-gold);
+
+
+    text-align:
+
+        center;
+
+
+    transition:
+
+        var(--transition);
+
+
+
+}
+
+
+
+.info-card:hover {
+
+
+    transform:
+
+        translateY(-5px);
+
+
+
+    border-color:
+
+        rgba(255,215,0,.5);
+
+
+
+}
+
+
+
+/* Títulos dentro de tarjetas */
+
+
+.info-card h3 {
+
+
+    color:
+
+        var(--gold);
+
+
+    font-size:
+
+        1rem;
+
+
+    margin-bottom:
+
+        15px;
+
+
+    text-transform:
+
+        uppercase;
+
+
+    letter-spacing:
+
+        1px;
+
+
+}
+
+
+
+/* Estado del juego */
+
+
+#status {
+
+
+    color:
+
+        var(--white);
+
+
+    font-weight:
+
+        500;
+
+
+}
+
+
+
+/* ================================
+   CONTADOR DE INTENTOS
+================================ */
+
+
+.attempts {
+
+
+    display:
+
+        flex;
+
+
+    justify-content:
+
+        center;
+
+
+    gap:
+
+        15px;
+
+
+}
+
+
+
+/* Cada vida */
+
+
+.life {
+
+
+    width:
+
+        22px;
+
+
+    height:
+
+        22px;
+
+
+    border-radius:
+
+        50%;
+
+
+    background:
+
+        #333;
+
+
+    border:
+
+        2px solid rgba(255,255,255,.15);
+
+
+
+    transition:
+
+        .3s ease;
+
+
+
+}
+
+
+
+/* Intento activo */
+
+
+.life.active {
+
+
+    background:
+
+        radial-gradient(
+            circle,
+            var(--gold-light),
+            var(--gold)
+        );
+
+
+    border-color:
+
+        var(--gold);
+
+
+    box-shadow:
+
+        0 0 15px var(--gold),
+        0 0 30px rgba(255,215,0,.5);
+
+
+
+    animation:
+
+        lifePulse 1.5s infinite;
+
+
+
+}
+
+
+
+/* Intento gastado */
+
+
+.life.used {
+
+
+    background:
+
+        var(--red);
+
+
+    border-color:
+
+        var(--red);
+
+
+    box-shadow:
+
+        0 0 15px rgba(255,0,0,.6);
+
+
+
+}
+
+
+
+/* ================================
+   ANIMACIONES
+================================ */
+
+
+@keyframes fadeDown {
+
+
+    from {
+
+        opacity:
+
+            0;
+
+
+        transform:
+
+            translateY(-30px);
+
+
+    }
+
+
+    to {
+
+
+        opacity:
+
+            1;
+
+
+        transform:
+
+            translateY(0);
+
+
+    }
+
+}
+
+
+
+@keyframes goldPulse {
+
+
+    from {
+
+
+        text-shadow:
+
+            0 0 10px var(--gold);
+
+
+    }
+
+
+    to {
+
+
+        text-shadow:
+
+            0 0 35px var(--gold);
+
+
+    }
+
+}
+
+
+
+@keyframes lifePulse {
+
+
+    0% {
+
+
+        transform:
+
+            scale(1);
+
+
+    }
+
+
+    50% {
+
+
+        transform:
+
+            scale(1.15);
+
+
+    }
+
+
+    100% {
+
+
+        transform:
+
+            scale(1);
+
+
+    }
+
+}
+
+/* =========================================
+   PARTE 3 - BOTONES + ELEMENTOS INTERACTIVOS
+========================================= */
+
+
+/* ================================
+   CONTENEDOR DE BOTONES
+================================ */
+
+
+.buttons {
+
+    display:
+
+        flex;
+
+
+    justify-content:
+
+        center;
+
+
+    align-items:
+
+        center;
+
+
+    margin-top:
+
+        35px;
+
+
+}
+
+
+
+/* ================================
+   BOTÓN PRINCIPAL
+================================ */
+
+
+button {
+
+
+    position:
+
+        relative;
+
+
+    overflow:
+
+        hidden;
+
+
+    border:
+
+        none;
+
+
+    outline:
+
+        none;
+
+
+    cursor:
+
+        pointer;
+
+
+    padding:
+
+        16px 40px;
+
+
+    border-radius:
+
+        50px;
+
+
+
+    font-size:
+
+        1rem;
+
+
+    font-weight:
+
+        700;
+
+
+    letter-spacing:
+
+        .5px;
+
+
+
+    color:
+
+        #111;
+
+
+
+    background:
+
+
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold),
+            var(--gold-dark)
+        );
+
+
+
+    box-shadow:
+
+
+        0 0 20px rgba(255,215,0,.35);
+
+
+
+    transition:
+
+        .35s ease;
+
+
+
+}
+
+
+
+/* Brillo que atraviesa el botón */
+
+
+button::before {
+
+
+    content:"";
+
+
+    position:
+
+        absolute;
+
+
+    top:
+
+        0;
+
+
+    left:
+
+        -120%;
+
+
+
+    width:
+
+        100%;
+
+
+    height:
+
+        100%;
+
+
+
+    background:
+
+
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.7),
+            transparent
+        );
+
+
+
+    transition:
+
+        .5s;
+
+
+
+}
+
+
+
+
+button:hover::before {
+
+
+    left:
+
+        120%;
+
+
+}
+
+
+
+
+button:hover {
+
+
+    transform:
+
+        translateY(-5px)
+        scale(1.05);
+
+
+
+    box-shadow:
+
+
+        0 0 35px rgba(255,215,0,.7);
+
+
+
+}
+
+
+
+button:active {
+
+
+    transform:
+
+        scale(.95);
+
+
+
+}
+
+
+
+/* ================================
+   TARJETAS EXTRA
+================================ */
+
+
+.card {
+
+
+    background:
+
+        var(--glass);
+
+
+    border:
+
+        1px solid var(--border);
+
+
+
+    backdrop-filter:
+
+        blur(15px);
+
+
+
+    border-radius:
+
+        var(--radius);
+
+
+
+    box-shadow:
+
+        var(--shadow-gold);
+
+
+
+    padding:
+
+        25px;
+
+
+
+    transition:
+
+        var(--transition);
+
+
+
+}
+
+
+
+
+.card:hover {
+
+
+    transform:
+
+        translateY(-8px);
+
+
+
+    box-shadow:
+
+
+        0 0 40px rgba(255,215,0,.25);
+
+
+
+}
+
+
+
+/* ================================
+   TEXTO DESTACADO
+================================ */
+
+
+.highlight {
+
+
+    color:
+
+        var(--gold);
+
+
+
+    font-weight:
+
+        800;
+
+
+
+    text-shadow:
+
+
+        0 0 15px rgba(255,215,0,.8);
+
+
+
+}
+
+
+
+/* ================================
+   SEPARADORES
+================================ */
+
+
+.gold-line {
+
+
+    width:
+
+        80%;
+
+
+    max-width:
+
+        500px;
+
+
+    height:
+
+        2px;
+
+
+    margin:
+
+        25px auto;
+
+
+
+    background:
+
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+
+
+    box-shadow:
+
+
+        0 0 15px var(--gold);
+
+
+
+}
+
+
+
+/* ================================
+   EFECTO DE ENTRADA GENERAL
+================================ */
+
+
+.fade-in {
+
+
+    animation:
+
+        fadeIn .7s ease forwards;
+
+
+
+}
+
+
+
+
+@keyframes fadeIn {
+
+
+    from {
+
+
+        opacity:
+
+            0;
+
+
+
+        transform:
+
+            translateY(20px);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            1;
+
+
+
+        transform:
+
+            translateY(0);
+
+
+
+    }
+
+
+
+}
+
+/* =========================================
+   PARTE 4 - TABLERO DE 200 CASILLAS
+========================================= */
+
+
+/* ================================
+   CONTENEDOR DEL TABLERO
+================================ */
+
+
+.board {
+
+    display:
+
+        grid;
+
+
+    grid-template-columns:
+
+        repeat(20, 1fr);
+
+
+
+    gap:
+
+        10px;
+
+
+
+    width:
+
+        100%;
+
+
+
+    margin:
+
+        40px auto;
+
+
+
+    padding:
+
+        25px;
+
+
+
+    border-radius:
+
+        25px;
+
+
+
+    background:
+
+        rgba(255,255,255,.03);
+
+
+
+    border:
+
+        1px solid rgba(255,215,0,.15);
+
+
+
+    backdrop-filter:
+
+        blur(12px);
+
+
+
+    box-shadow:
+
+
+        0 0 40px rgba(0,0,0,.5);
+
+
+
+}
+
+
+
+/* ================================
+   CASILLA INDIVIDUAL
+================================ */
+
+
+.cell {
+
+
+    position:
+
+        relative;
+
+
+
+    aspect-ratio:
+
+        1 / 1;
+
+
+
+    display:
+
+        flex;
+
+
+
+    justify-content:
+
+        center;
+
+
+
+    align-items:
+
+        center;
+
+
+
+    cursor:
+
+        pointer;
+
+
+
+    border-radius:
+
+        12px;
+
+
+
+    overflow:
+
+        hidden;
+
+
+
+    user-select:
+
+        none;
+
+
+
+    background:
+
+
+        linear-gradient(
+            145deg,
+            #222,
+            #0c0c0c
+        );
+
+
+
+    border:
+
+        1px solid rgba(255,215,0,.18);
+
+
+
+    box-shadow:
+
+
+        inset 0 0 10px rgba(255,255,255,.05),
+
+
+        0 5px 15px rgba(0,0,0,.5);
+
+
+
+    transition:
+
+
+        transform .25s ease,
+
+        border .25s ease,
+
+        box-shadow .25s ease,
+
+        background .25s ease;
+
+
+
+}
+
+
+
+/* Brillo interno */
+
+
+.cell::before {
+
+
+    content:"";
+
+
+    position:
+
+        absolute;
+
+
+
+    inset:
+
+        0;
+
+
+
+    background:
+
+
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.12),
+            transparent
+        );
+
+
+
+    transform:
+
+        translateX(-120%);
+
+
+
+    transition:
+
+        .5s;
+
+
+
+}
+
+
+
+
+.cell:hover::before {
+
+
+    transform:
+
+        translateX(120%);
+
+
+
+}
+
+
+
+/* Hover de la casilla */
+
+
+.cell:hover {
+
+
+    transform:
+
+        translateY(-5px)
+        scale(1.05);
+
+
+
+    border-color:
+
+        var(--gold);
+
+
+
+    box-shadow:
+
+
+        0 0 20px rgba(255,215,0,.35),
+
+
+        inset 0 0 15px rgba(255,215,0,.15);
+
+
+
+}
+
+
+
+/* Cuando ya fue seleccionada */
+
+
+.cell.selected {
+
+
+    cursor:
+
+        default;
+
+
+
+    transform:
+
+        scale(.95);
+
+
+
+}
+
+
+
+/* ================================
+   ESTADO BLOQUEADO
+================================ */
+
+
+.board.locked .cell {
+
+
+    cursor:
+
+        not-allowed;
+
+
+
+    opacity:
+
+        .75;
+
+
+
+}
+
+
+
+/* ================================
+   EFECTO DE APARICIÓN
+================================ */
+
+
+.cell {
+
+
+    animation:
+
+
+        cellAppear .35s ease backwards;
+
+
+
+}
+
+
+/* Retraso escalonado */
+
+.cell:nth-child(2n){
+
+    animation-delay:.03s;
+
+}
+
+.cell:nth-child(3n){
+
+    animation-delay:.06s;
+
+}
+
+.cell:nth-child(4n){
+
+    animation-delay:.09s;
+
+}
+
+.cell:nth-child(5n){
+
+    animation-delay:.12s;
+
+}
+
+
+
+@keyframes cellAppear {
+
+
+    from {
+
+
+        opacity:
+
+            0;
+
+
+
+        transform:
+
+            scale(.6)
+            rotateY(90deg);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            1;
+
+
+
+        transform:
+
+            scale(1)
+            rotateY(0);
+
+
+
+    }
+
+
+}
+
+
+
+/* ================================
+   RESPONSIVE TABLERO
+================================ */
+
+
+@media(max-width:900px){
+
+
+    .board {
+
+
+        grid-template-columns:
+
+            repeat(10,1fr);
+
+
+
+        gap:
+
+            8px;
+
+
+
+        padding:
+
+            15px;
+
+
+
+    }
+
+
+}
+
+
+
+@media(max-width:500px){
+
+
+    .board {
+
+
+        grid-template-columns:
+
+            repeat(5,1fr);
+
+
+
+        gap:
+
+            7px;
+
+
+
+    }
+
+
+
+    .cell {
+
+
+        border-radius:
+
+            8px;
+
+
+
+    }
+
+
+
+}
+
+/* =========================================
+   PARTE 5 - ESTADOS DE CASILLAS
+========================================= */
+
+
+/* ================================
+   CASILLA FALLIDA ❌
+================================ */
+
+
+.cell.fail {
+
+
+    background:
+
+
+        linear-gradient(
+            145deg,
+            #ff4b4b,
+            #8b0000
+        );
+
+
+
+    border-color:
+
+        rgba(255,80,80,.9);
+
+
+
+    color:
+
+        white;
+
+
+
+    box-shadow:
+
+
+        0 0 25px rgba(255,0,0,.6),
+
+
+        inset 0 0 20px rgba(0,0,0,.5);
+
+
+
+    animation:
+
+
+        shake .45s ease;
+
+
+
+}
+
+
+
+/* X dentro de la casilla */
+
+
+.cell.fail::after {
+
+
+    content:"✕";
+
+
+    font-size:
+
+        clamp(1rem,2vw,2rem);
+
+
+
+    font-weight:
+
+        900;
+
+
+
+    color:
+
+        white;
+
+
+
+    text-shadow:
+
+
+        0 0 15px rgba(255,255,255,.8);
+
+
+
+    animation:
+
+
+        xAppear .3s ease;
+
+
+
+}
+
+
+
+/* ================================
+   CASILLA GANADORA ×2
+================================ */
+
+
+.cell.win {
+
+
+    background:
+
+
+        linear-gradient(
+            145deg,
+            #fff38a,
+            #ffd700,
+            #b88600
+        );
+
+
+
+    color:
+
+        #111;
+
+
+
+    border-color:
+
+        white;
+
+
+
+    box-shadow:
+
+
+        0 0 30px gold,
+
+
+        0 0 70px rgba(255,215,0,.8);
+
+
+
+    animation:
+
+
+        winnerPulse 1s infinite alternate;
+
+
+
+}
+
+
+
+/* Texto del multiplicador */
+
+
+.cell.win::after {
+
+
+    content:"×2";
+
+
+    font-size:
+
+        clamp(1rem,2vw,2rem);
+
+
+
+    font-weight:
+
+        900;
+
+
+
+    color:
+
+        #111;
+
+
+
+    text-shadow:
+
+
+        0 0 10px white;
+
+
+
+}
+
+
+
+/* ================================
+   PARTÍCULAS
+================================ */
+
+
+.particle {
+
+
+    position:
+
+        absolute;
+
+
+
+    width:
+
+        8px;
+
+
+
+    height:
+
+        8px;
+
+
+
+    border-radius:
+
+        50%;
+
+
+
+    pointer-events:
+
+        none;
+
+
+
+    background:
+
+        var(--red);
+
+
+
+    box-shadow:
+
+
+        0 0 15px var(--red);
+
+
+
+    animation:
+
+
+        particleFly .8s forwards;
+
+
+
+}
+
+
+
+/* ================================
+   ANIMACIONES
+================================ */
+
+
+
+@keyframes shake {
+
+
+    0% {
+
+
+        transform:
+
+            translateX(0);
+
+
+
+    }
+
+
+    20% {
+
+
+        transform:
+
+            translateX(-8px);
+
+
+
+    }
+
+
+    40% {
+
+
+        transform:
+
+            translateX(8px);
+
+
+
+    }
+
+
+    60% {
+
+
+        transform:
+
+            translateX(-6px);
+
+
+
+    }
+
+
+    80% {
+
+
+        transform:
+
+            translateX(6px);
+
+
+
+    }
+
+
+    100% {
+
+
+        transform:
+
+            translateX(0);
+
+
+
+    }
+
+
+}
+
+
+
+@keyframes xAppear {
+
+
+    from {
+
+
+        opacity:
+
+            0;
+
+
+
+        transform:
+
+            scale(0);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            1;
+
+
+
+        transform:
+
+            scale(1);
+
+
+
+    }
+
+
+}
+
+
+
+@keyframes winnerPulse {
+
+
+    from {
+
+
+        transform:
+
+            scale(1);
+
+
+
+    }
+
+
+
+    to {
+
+
+        transform:
+
+            scale(1.08);
+
+
+
+    }
+
+
+}
+
+
+
+@keyframes particleFly {
+
+
+    from {
+
+
+        opacity:
+
+            1;
+
+
+
+        transform:
+
+            translate(0,0)
+            scale(1);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            0;
+
+
+
+        transform:
+
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(0);
+
+
+
+    }
+
+
+}
+
+/* =========================================
+   PARTE 6 - OVERLAYS Y POPUPS
+========================================= */
+
+
+/* ================================
+   CAPA GENERAL
+================================ */
+
+
+.overlay {
+
+
+    position:
+
+        fixed;
+
+
+
+    inset:
+
+        0;
+
+
+
+    display:
+
+        flex;
+
+
+
+    justify-content:
+
+        center;
+
+
+
+    align-items:
+
+        center;
+
+
+
+    background:
+
+
+        rgba(0,0,0,.75);
+
+
+
+    backdrop-filter:
+
+
+        blur(10px);
+
+
+
+    z-index:
+
+        1000;
+
+
+
+    opacity:
+
+        1;
+
+
+
+    transition:
+
+        .4s ease;
+
+
+
+}
+
+
+
+/* Oculto */
+
+.overlay.hidden {
+
+
+    opacity:
+
+        0;
+
+
+
+    pointer-events:
+
+        none;
+
+
+
+}
+
+
+
+/* ================================
+   CAJA DEL POPUP
+================================ */
+
+
+.popup {
+
+
+    width:
+
+        min(420px,90%);
+
+
+
+    padding:
+
+        40px 30px;
+
+
+
+    text-align:
+
+        center;
+
+
+
+    border-radius:
+
+        30px;
+
+
+
+    background:
+
+
+        linear-gradient(
+            145deg,
+            #181818,
+            #080808
+        );
+
+
+
+    border:
+
+        1px solid rgba(255,215,0,.35);
+
+
+
+    box-shadow:
+
+
+        0 0 50px rgba(255,215,0,.25),
+
+
+        inset 0 0 30px rgba(255,255,255,.05);
+
+
+
+    animation:
+
+
+        popupShow .5s ease;
+
+
+
+}
+
+
+
+/* ================================
+   ICONOS
+================================ */
+
+
+.trophy {
+
+
+    font-size:
+
+        5rem;
+
+
+
+    margin-bottom:
+
+        20px;
+
+
+
+    animation:
+
+
+        trophyBounce 1s infinite alternate;
+
+
+
+}
+
+
+
+.cross {
+
+
+    font-size:
+
+        5rem;
+
+
+
+    margin-bottom:
+
+        20px;
+
+
+
+    animation:
+
+
+        crossShake .7s infinite;
+
+
+
+}
+
+
+
+/* ================================
+   TEXTOS
+================================ */
+
+
+.popup h2 {
+
+
+    font-size:
+
+        2rem;
+
+
+
+    margin-bottom:
+
+        15px;
+
+
+
+    color:
+
+        var(--gold);
+
+
+
+    text-shadow:
+
+
+        0 0 20px rgba(255,215,0,.7);
+
+
+
+}
+
+
+
+.popup h3 {
+
+
+    color:
+
+        white;
+
+
+
+    margin-bottom:
+
+        25px;
+
+
+
+}
+
+
+
+.popup h3 span {
+
+
+    color:
+
+        var(--gold);
+
+
+
+    font-size:
+
+        2rem;
+
+
+
+}
+
+
+
+/* Texto derrota */
+
+
+.popup p {
+
+
+    color:
+
+        var(--gray);
+
+
+
+    margin-bottom:
+
+        25px;
+
+
+
+}
+
+
+
+/* ================================
+   BOTÓN POPUP
+================================ */
+
+
+.popup button {
+
+
+    margin-top:
+
+        10px;
+
+
+
+}
+
+
+
+/* ================================
+   ANIMACIONES
+================================ */
+
+
+@keyframes popupShow {
+
+
+    from {
+
+
+        opacity:
+
+            0;
+
+
+
+        transform:
+
+
+            scale(.6)
+            translateY(40px);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            1;
+
+
+
+        transform:
+
+
+            scale(1)
+            translateY(0);
+
+
+
+    }
+
+
+}
+
+
+
+@keyframes trophyBounce {
+
+
+    from {
+
+
+        transform:
+
+            translateY(0);
+
+
+
+    }
+
+
+
+    to {
+
+
+        transform:
+
+            translateY(-15px);
+
+
+
+    }
+
+
+}
+
+
+
+@keyframes crossShake {
+
+
+    0% {
+
+
+        transform:
+
+            rotate(0deg);
+
+
+
+    }
+
+
+
+    25% {
+
+
+        transform:
+
+            rotate(-10deg);
+
+
+
+    }
+
+
+
+    50% {
+
+
+        transform:
+
+            rotate(10deg);
+
+
+
+    }
+
+
+
+    100% {
+
+
+        transform:
+
+            rotate(0deg);
+
+
+
+    }
+
+
+}
+
+/* =========================================
+   PARTE 7 - EFECTOS PREMIUM Y ANIMACIONES
+========================================= */
+
+
+/* ================================
+   CONTENEDOR DE PARTÍCULAS
+================================ */
+
+
+#particles {
+
+
+    position:
+
+        fixed;
+
+
+
+    inset:
+
+        0;
+
+
+
+    pointer-events:
+
+        none;
+
+
+
+    overflow:
+
+        hidden;
+
+
+
+    z-index:
+
+        2000;
+
+
+
+}
+
+
+
+/* ================================
+   CONFETI DE VICTORIA
+================================ */
+
+
+.confetti {
+
+
+    position:
+
+        absolute;
+
+
+
+    top:
+
+        -20px;
+
+
+
+    width:
+
+        12px;
+
+
+
+    height:
+
+        20px;
+
+
+
+    background:
+
+        var(--gold);
+
+
+
+    opacity:
+
+        .9;
+
+
+
+    animation:
+
+
+        confettiFall 3s linear forwards;
+
+
+
+}
+
+
+
+/* Variaciones */
+
+
+.confetti:nth-child(2n) {
+
+
+    background:
+
+        #fff;
+
+
+
+}
+
+
+
+.confetti:nth-child(3n) {
+
+
+    background:
+
+        #ffd700;
+
+
+
+}
+
+
+
+.confetti:nth-child(4n) {
+
+
+    background:
+
+        #ffea75;
+
+
+
+}
+
+
+
+/* ================================
+   BRILLO DE GANADOR
+================================ */
+
+
+.win-glow {
+
+
+    animation:
+
+
+        winGlow 1.5s infinite alternate;
+
+
+
+}
+
+
+
+@keyframes winGlow {
+
+
+    from {
+
+
+        filter:
+
+            brightness(1);
+
+
+
+        box-shadow:
+
+
+            0 0 20px gold;
+
+
+
+    }
+
+
+
+    to {
+
+
+        filter:
+
+            brightness(1.4);
+
+
+
+        box-shadow:
+
+
+            0 0 70px gold;
+
+
+
+    }
+
+
+}
+
+
+
+/* ================================
+   EFECTO DE PULSO CASINO
+================================ */
+
+
+.casino-pulse {
+
+
+    animation:
+
+
+        casinoPulse 2s infinite;
+
+
+
+}
+
+
+
+@keyframes casinoPulse {
+
+
+    0% {
+
+
+        transform:
+
+            scale(1);
+
+
+
+    }
+
+
+
+    50% {
+
+
+        transform:
+
+            scale(1.03);
+
+
+
+    }
+
+
+
+    100% {
+
+
+        transform:
+
+            scale(1);
+
+
+
+    }
+
+
+}
+
+
+
+/* ================================
+   FLASH DORADO
+================================ */
+
+
+.gold-flash {
+
+
+    position:
+
+        fixed;
+
+
+
+    inset:
+
+        0;
+
+
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,215,0,.35),
+            transparent 60%
+        );
+
+
+
+    pointer-events:
+
+        none;
+
+
+
+    animation:
+
+
+        flashGold .8s ease;
+
+
+
+}
+
+
+
+@keyframes flashGold {
+
+
+    from {
+
+
+        opacity:
+
+            1;
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            0;
+
+
+
+    }
+
+
+}
+
+
+
+/* ================================
+   CONFETI ANIMACIÓN
+================================ */
+
+
+@keyframes confettiFall {
+
+
+    0% {
+
+
+        transform:
+
+
+            translateY(-50px)
+            rotate(0deg);
+
+
+
+        opacity:
+
+            1;
+
+
+
+    }
+
+
+
+    100% {
+
+
+        transform:
+
+
+            translateY(110vh)
+            rotate(720deg);
+
+
+
+        opacity:
+
+            0;
+
+
+
+    }
+
+
+}
+
+
+
+/* ================================
+   APARICIÓN SUAVE
+================================ */
+
+
+.fade-enter {
+
+
+    animation:
+
+
+        fadeEnter .6s ease forwards;
+
+
+
+}
+
+
+
+@keyframes fadeEnter {
+
+
+    from {
+
+
+        opacity:
+
+            0;
+
+
+
+        transform:
+
+            translateY(30px);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            1;
+
+
+
+        transform:
+
+            translateY(0);
+
+
+
+    }
+
+
+}
+
+
+
+/* ================================
+   EFECTO DE ROTACIÓN 3D
+================================ */
+
+
+.rotate-in {
+
+
+    animation:
+
+
+        rotateIn .7s ease;
+
+
+
+}
+
+
+
+@keyframes rotateIn {
+
+
+    from {
+
+
+        opacity:
+
+            0;
+
+
+
+        transform:
+
+
+            rotateY(90deg);
+
+
+
+    }
+
+
+
+    to {
+
+
+        opacity:
+
+            1;
+
+
+
+        transform:
+
+
+            rotateY(0);
+
+
+
+    }
+
+
+}
+
+
+
+/* ================================
+   DESTELLO EN CASILLAS
+================================ */
+
+
+.cell.spark {
+
+
+    animation:
+
+
+        spark .8s ease;
+
+
+
+}
+
+
+
+@keyframes spark {
+
+
+    0% {
+
+
+        box-shadow:
+
+            0 0 0 transparent;
+
+
+
+    }
+
+
+
+    50% {
+
+
+        box-shadow:
+
+
+            0 0 40px white;
+
+
+
+    }
+
+
+
+    100% {
+
+
+        box-shadow:
+
+            0 0 0 transparent;
+
+
+
+    }
+
+
+}
+
+/* =========================================
+   PARTE 8 - RESPONSIVE FINAL
+========================================= */
+
+
+/* ================================
+   TABLETS
+================================ */
+
+
+@media (max-width: 1100px) {
+
+
+    .container {
+
+        width:
+
+            95%;
+
+    }
+
+
+
+    .header h1 {
+
+        font-size:
+
+            2.8rem;
+
+    }
+
+
+
+    .board {
+
+
+        grid-template-columns:
+
+            repeat(10, 1fr);
+
+
+
+        gap:
+
+            9px;
+
+
+        padding:
+
+            20px;
+
+
+    }
+
+
+
+    .cell {
+
+        border-radius:
+
+            10px;
+
+
+    }
+
+
+
+}
+
+
+
+/* ================================
+   CELULARES GRANDES
+================================ */
+
+
+@media (max-width: 700px) {
+
+
+
+    .container {
+
+
+        padding-top:
+
+            25px;
+
+
+    }
+
+
+
+    .header h1 {
+
+
+        font-size:
+
+            2rem;
+
+
+    }
+
+
+
+    .subtitle {
+
+
+        font-size:
+
+            .9rem;
+
+
+    }
+
+
+
+    .panel {
+
+
+        flex-direction:
+
+            column;
+
+
+
+        align-items:
+
+            center;
+
+
+    }
+
+
+
+    .info-card {
+
+
+        width:
+
+            100%;
+
+
+
+        max-width:
+
+            350px;
+
+
+    }
+
+
+
+    .board {
+
+
+        grid-template-columns:
+
+            repeat(5,1fr);
+
+
+
+        gap:
+
+            8px;
+
+
+
+        padding:
+
+            15px;
+
+
+
+    }
+
+
+
+    .cell {
+
+
+        border-radius:
+
+            8px;
+
+
+
+    }
+
+
+
+    button {
+
+
+        width:
+
+            90%;
+
+
+
+        padding:
+
+            14px;
+
+
+
+    }
+
+
+
+}
+
+
+
+/* ================================
+   CELULARES PEQUEÑOS
+================================ */
+
+
+@media (max-width: 400px) {
+
+
+
+    .header h1 {
+
+
+        font-size:
+
+            1.7rem;
+
+
+
+    }
+
+
+
+    .board {
+
+
+        gap:
+
+            6px;
+
+
+
+        padding:
+
+            10px;
+
+
+
+    }
+
+
+
+    .cell {
+
+
+        border-radius:
+
+            6px;
+
+
+
+    }
+
+
+
+    .life {
+
+
+        width:
+
+            18px;
+
+
+
+        height:
+
+            18px;
+
+
+
+    }
+
+
+
+    .popup {
+
+
+        padding:
+
+            30px 20px;
+
+
+
+    }
+
+
+
+    .popup h2 {
+
+
+        font-size:
+
+            1.5rem;
+
+
+
+    }
+
+
+
+}
+
+
+
+/* ================================
+   PANTALLAS ALTAS
+================================ */
+
+
+@media (min-height:900px) {
+
+
+
+    .container {
+
+
+        padding-top:
+
+            70px;
+
+
+
+    }
+
+
+
+}
+
+
+
+/* ================================
+   REDUCIR ANIMACIONES
+   (Accesibilidad)
+================================ */
+
+
+@media (prefers-reduced-motion: reduce) {
+
+
+
+    *,
+    *::before,
+    *::after {
+
+
+        animation-duration:
+
+            0.01ms !important;
+
+
+
+        animation-iteration-count:
+
+            1 !important;
+
+
+
+        transition-duration:
+
+            0.01ms !important;
+
+
+
+    }
+
+
+
+}
+
+
+
+/* ================================
+   SCROLLBAR PREMIUM
+================================ */
+
+
+::-webkit-scrollbar {
+
+
+    width:
+
+        12px;
+
+
+
+}
+
+
+
+::-webkit-scrollbar-track {
+
+
+    background:
+
+        #050505;
+
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb {
+
+
+    background:
+
+        linear-gradient(
+            var(--gold),
+            var(--gold-dark)
+        );
+
+
+
+    border-radius:
+
+        20px;
+
+
+
+    border:
+
+        3px solid #050505;
+
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover {
+
+
+    background:
+
+        var(--gold-light);
+
+
+
+}
