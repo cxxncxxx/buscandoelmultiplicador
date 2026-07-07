@@ -1249,74 +1249,39 @@ button:active {
 .board {
 
     display:
-
         grid;
 
-
     grid-template-columns:
-
-        repeat(20, 1fr);
-
-
+        repeat(25, 1fr);
 
     gap:
-
-        10px;
-
-
+        6px;
 
     width:
-
         100%;
 
-
-
     margin:
-
-        40px auto;
-
-
+        20px auto;
 
     padding:
-
-        25px;
-
-
+        15px;
 
     border-radius:
-
         25px;
 
-
-
     background:
-
         rgba(255,255,255,.03);
 
-
-
     border:
-
         1px solid rgba(255,215,0,.15);
 
-
-
     backdrop-filter:
-
         blur(12px);
 
-
-
     box-shadow:
-
-
         0 0 40px rgba(0,0,0,.5);
 
-
-
 }
-
-
 
 /* ================================
    CASILLA INDIVIDUAL
@@ -1364,7 +1329,7 @@ button:active {
 
     border-radius:
 
-        12px;
+        8px;
 
 
 
