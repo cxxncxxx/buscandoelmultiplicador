@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🎯 Buscando el Multiplicador</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <main class="container">
+
+        <!-- Encabezado -->
+
+        <header class="header">
+
+            <h1>🎯 Buscando el Multiplicador</h1>
+
+            <p class="subtitle">
+                Encontrá el único <span>x2</span> oculto entre las 200 casillas.
+            </p>
+
+        </header>
+
+        <!-- Panel -->
+
+        <section class="panel">
+
+            <div class="info-card">
+
+                <h3>Intentos</h3>
+
+                <div id="attempts" class="attempts">
+
+                    <span class="life active"></span>
+                    <span class="life active"></span>
+                    <span class="life active"></span>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Estado</h3>
+
+                <p id="status">
+                    Elegí una casilla...
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Tablero -->
+
+        <section id="board" class="board">
+
+            <!-- JS genera las 200 casillas -->
+
+        </section>
+
+        <!-- Botón -->
+
+        <div class="buttons">
+
+            <button id="restartBtn">
+
+                🔄 Nueva partida
+
+            </button>
+
+        </div>
+
+    </main>
+
+    <!-- Pantalla de victoria -->
+
+    <div id="winScreen" class="overlay hidden">
+
+        <div class="popup">
+
+            <div class="trophy">
+
+                🏆
+
+            </div>
+
+            <h2>
+
+                ¡GANASTE!
+
+            </h2>
+
+            <h3>
+
+                Encontraste el
+
+                <span>x2</span>
+
+            </h3>
+
+            <button id="playAgain">
+
+                Jugar nuevamente
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Pantalla derrota -->
+
+    <div id="loseScreen" class="overlay hidden">
+
+        <div class="popup">
+
+            <div class="cross">
+
+                ❌
+
+            </div>
+
+            <h2>
+
+                Sin suerte...
+
+            </h2>
+
+            <p>
+
+                Agotaste los 3 intentos.
+
+            </p>
+
+            <button id="tryAgain">
+
+                Intentar nuevamente
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Contenedor partículas -->
+
+    <div id="particles"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
