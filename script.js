@@ -70,7 +70,7 @@ function startGame(){
 
 
     statusText.textContent =
-        "Elegí una casilla y encontrá el ×2";
+        "Elegí una casilla y encontrá el multiplicador";
 
 
     // posición aleatoria del multiplicador
