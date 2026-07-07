@@ -111,12 +111,15 @@ function createBoard(){
         cell.dataset.index = i;
 
 
+        // Número visible de casilla
+        cell.textContent = i + 1;
+
+
 
         cell.addEventListener(
             "click",
             () => selectCell(cell, i)
         );
-
 
 
         board.appendChild(cell);
