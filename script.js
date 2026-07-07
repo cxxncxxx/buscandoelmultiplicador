@@ -612,3 +612,147 @@ function createFlash(){
 
 }
 
+/* =========================================
+   PARTE 4 - SONIDOS Y DETALLES FINALES
+========================================= */
+
+
+// ================================
+// AUDIOS
+// ================================
+
+const clickSound =
+    document.getElementById("clickSound");
+
+const failSound =
+    document.getElementById("failSound");
+
+const winSound =
+    document.getElementById("winSound");
+
+const restartSound =
+    document.getElementById("restartSound");
+
+
+
+// ================================
+// REPRODUCIR SONIDO
+// ================================
+
+function playSound(sound){
+
+
+    if(!sound){
+
+        return;
+
+    }
+
+
+    sound.currentTime = 0;
+
+
+    sound.play()
+    .catch(()=>{});
+
+
+}
+
+
+
+// ================================
+// MODIFICAR FAILCELL
+// ================================
+
+// Guardamos la función anterior
+
+const oldFailCell = failCell;
+
+
+
+failCell = function(cell){
+
+
+    oldFailCell(cell);
+
+
+    playSound(failSound);
+
+
+    createParticles(cell);
+
+
+};
+
+
+
+
+// ================================
+// MODIFICAR WIN
+// ================================
+
+
+const oldWinGame = winGame;
+
+
+
+winGame = function(cell){
+
+
+    oldWinGame(cell);
+
+
+    playSound(winSound);
+
+
+};
+
+
+
+
+// ================================
+// REINICIO CON SONIDO
+// ================================
+
+
+const oldStartGame = startGame;
+
+
+
+startGame = function(){
+
+
+    playSound(restartSound);
+
+
+    oldStartGame();
+
+
+};
+
+
+
+
+// ================================
+// CLICK GENERAL
+// ================================
+
+
+board.addEventListener(
+    "click",
+    (e)=>{
+
+
+        if(
+            e.target.classList.contains("cell")
+        ){
+
+            playSound(clickSound);
+
+        }
+
+
+    }
+
+);
+
